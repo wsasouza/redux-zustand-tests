@@ -4,9 +4,17 @@ import { Header } from '../components/Header'
 import { VideoPlayer } from '../components/VideoPlayer'
 import { Module } from '../components/Module'
 import { useAppSelector } from '../store'
+import { useCurrentLesson } from '../store/slices/player'
+import { useEffect } from 'react'
 
 export function PlayerPage() {
   const modules = useAppSelector((state) => state.player.course.modules)
+
+  const { currentLesson } = useCurrentLesson()
+
+  useEffect(() => {
+    document.title = `Assistindo: ${currentLesson.title}`
+  }, [currentLesson])
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-950 text-zinc-50">
