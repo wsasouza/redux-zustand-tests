@@ -15,7 +15,7 @@ interface Course {
   }>
 }
 
-interface PlayerState {
+export interface PlayerState {
   course: Course | null
   currentModuleIndex: number
   currentLessonIndex: number
@@ -32,6 +32,10 @@ export const playerSlice = createSlice({
   initialState,
 
   reducers: {
+    start: (state, action: PayloadAction<Course>) => {
+      state.course = action.payload
+    },
+
     play: (state, action: PayloadAction<[number, number]>) => {
       state.currentModuleIndex = action.payload[0]
       state.currentLessonIndex = action.payload[1]
@@ -58,7 +62,7 @@ export const playerSlice = createSlice({
 })
 
 export const player = playerSlice.reducer
-export const { play, next } = playerSlice.actions
+export const { start, play, next } = playerSlice.actions
 
 export const useCurrentLesson = () => {
   return useAppSelector((state) => {
