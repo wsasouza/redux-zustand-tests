@@ -1,6 +1,6 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { useAppSelector } from '..'
+import { api } from '../../lib/axios'
 
 interface Course {
   id: number
@@ -26,6 +26,12 @@ const initialState: PlayerState = {
   currentModuleIndex: 0,
   currentLessonIndex: 0,
 }
+
+export const loadCourse = createAsyncThunk('start', async () => {
+  api.get('/courses/1').then((response) => {
+    console.log(response.data)
+  })
+})
 
 export const playerSlice = createSlice({
   name: 'player',
