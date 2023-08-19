@@ -1,25 +1,26 @@
+import { useEffect } from 'react'
 import { MessageCircle } from 'lucide-react'
 
-import { Header } from '../components/components-redux/Header'
-import { VideoPlayer } from '../components/components-redux/VideoPlayer'
-import { Module } from '../components/components-redux/Module'
-import { useAppDispatch, useAppSelector } from '../store-redux'
-import { loadCourse, useCurrentLesson } from '../store-redux/slices/player'
-import { useEffect } from 'react'
+import { Header } from '../components/components-zustand/Header'
+import { VideoPlayer } from '../components/components-zustand/VideoPlayer'
+import { Module } from '../components/components-zustand/Module'
 import { SkeletonModule } from '../components/SkeletonModule'
+import { useCurrentLesson, useStore } from '../store-zustand'
 
 export function PlayerPageWithZustand() {
-  const dispatch = useAppDispatch()
-
-  const modules = useAppSelector((state) => state.player.course?.modules)
+  const { course, load, isLoading } = useStore((store) => {
+    return {
+      course: store.course,
+      load: store.load,
+      isLoading: store.isLoading,
+    }
+  })
 
   const { currentLesson } = useCurrentLesson()
 
-  const isCourseLoading = useAppSelector((state) => state.player.isLoading)
-
   useEffect(() => {
-    dispatch(loadCourse())
-  }, [dispatch])
+    load()
+  }, [load])
 
   useEffect(() => {
     if (currentLesson) document.title = `Assistindo: ${currentLesson.title}`
@@ -29,7 +30,7 @@ export function PlayerPageWithZustand() {
     <div className="flex h-full py-10 items-center justify-center bg-zinc-950 text-zinc-50">
       <div className="flex w-[1100px] flex-col gap-6">
         <h1 className="text-xl font-semibold">
-          1. Gerenciando estado com Redux
+          2. Gerenciando estado com Zustand
         </h1>
         <div className="flex items-center justify-between">
           <Header />
@@ -47,12 +48,12 @@ export function PlayerPageWithZustand() {
             <VideoPlayer />
           </div>
           <aside className="absolute bottom-0 right-0 top-0 w-80 divide-y-2 divide-zinc-900 overflow-y-scroll border-l border-zinc-800 bg-zinc-900 scrollbar-thin scrollbar-track-zinc-950 scrollbar-thumb-violet-500">
-            {isCourseLoading ? (
+            {isLoading ? (
               <SkeletonModule />
             ) : (
               <>
-                {modules &&
-                  modules.map((module, index) => {
+                {course &&
+                  course.modules.map((module, index) => {
                     return (
                       <Module
                         key={module.id}

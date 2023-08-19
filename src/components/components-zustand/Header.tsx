@@ -1,15 +1,13 @@
-import { useAppSelector } from '../../store-redux'
-import { useCurrentLesson } from '../../store-redux/slices/player'
 import { Skeleton } from '../Skeleton'
+import { useCurrentLesson, useStore } from '../../store-zustand'
 
 export function Header() {
   const { currentModule, currentLesson } = useCurrentLesson()
-
-  const isCourseLoading = useAppSelector((state) => state.player.isLoading)
+  const isLoading = useStore((store) => store.isLoading)
 
   return (
     <div className="flex flex-col gap-1">
-      {isCourseLoading ? (
+      {isLoading ? (
         <Skeleton />
       ) : (
         <>
