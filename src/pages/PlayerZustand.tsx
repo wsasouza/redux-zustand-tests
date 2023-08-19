@@ -8,7 +8,7 @@ import { loadCourse, useCurrentLesson } from '../store-redux/slices/player'
 import { useEffect } from 'react'
 import { SkeletonModule } from '../components/SkeletonModule'
 
-export function PlayerPageWithRedux() {
+export function PlayerPageWithZustand() {
   const dispatch = useAppDispatch()
 
   const modules = useAppSelector((state) => state.player.course?.modules)
