@@ -1,5 +1,6 @@
 import { useAppSelector } from '../store'
 import { useCurrentLesson } from '../store/slices/player'
+import { Skeleton } from './Skeleton'
 
 export function Header() {
   const { currentModule, currentLesson } = useCurrentLesson()
@@ -9,10 +10,7 @@ export function Header() {
   return (
     <div className="flex flex-col gap-1">
       {isCourseLoading ? (
-        <div className="animate-pulse">
-          <div className="h-6 w-3/4 bg-zinc-700"></div>
-          <div className="h-6 w-2/3 bg-zinc-700"></div>
-        </div>
+        <Skeleton />
       ) : (
         <>
           <h1 className="text-2xl font-bold">{currentLesson?.title}</h1>

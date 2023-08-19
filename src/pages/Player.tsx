@@ -6,6 +6,7 @@ import { Module } from '../components/Module'
 import { useAppDispatch, useAppSelector } from '../store'
 import { loadCourse, useCurrentLesson } from '../store/slices/player'
 import { useEffect } from 'react'
+import { SkeletonModule } from '../components/SkeletonModule'
 
 export function PlayerPage() {
   const dispatch = useAppDispatch()
@@ -13,6 +14,8 @@ export function PlayerPage() {
   const modules = useAppSelector((state) => state.player.course?.modules)
 
   const { currentLesson } = useCurrentLesson()
+
+  const isCourseLoading = useAppSelector((state) => state.player.isLoading)
 
   useEffect(() => {
     dispatch(loadCourse())
@@ -41,17 +44,23 @@ export function PlayerPage() {
             <VideoPlayer />
           </div>
           <aside className="absolute bottom-0 right-0 top-0 w-80 divide-y-2 divide-zinc-900 overflow-y-scroll border-l border-zinc-800 bg-zinc-900 scrollbar-thin scrollbar-track-zinc-950 scrollbar-thumb-violet-500">
-            {modules &&
-              modules.map((module, index) => {
-                return (
-                  <Module
-                    key={module.id}
-                    moduleIndex={index}
-                    title={module.title}
-                    amountOfLessons={module.lessons.length}
-                  />
-                )
-              })}
+            {isCourseLoading ? (
+              <SkeletonModule />
+            ) : (
+              <>
+                {modules &&
+                  modules.map((module, index) => {
+                    return (
+                      <Module
+                        key={module.id}
+                        moduleIndex={index}
+                        title={module.title}
+                        amountOfLessons={module.lessons.length}
+                      />
+                    )
+                  })}
+              </>
+            )}
           </aside>
         </main>
       </div>
