@@ -1,14 +1,14 @@
 import { MessageCircle } from 'lucide-react'
 
-import { Header } from '../components/Header'
-import { VideoPlayer } from '../components/VideoPlayer'
-import { Module } from '../components/Module'
-import { useAppDispatch, useAppSelector } from '../store'
-import { loadCourse, useCurrentLesson } from '../store/slices/player'
+import { Header } from '../components/components-redux/Header'
+import { VideoPlayer } from '../components/components-redux/VideoPlayer'
+import { Module } from '../components/components-redux/Module'
+import { useAppDispatch, useAppSelector } from '../store-redux'
+import { loadCourse, useCurrentLesson } from '../store-redux/slices/player'
 import { useEffect } from 'react'
 import { SkeletonModule } from '../components/SkeletonModule'
 
-export function PlayerPage() {
+export function PlayerPageWithRedux() {
   const dispatch = useAppDispatch()
 
   const modules = useAppSelector((state) => state.player.course?.modules)
@@ -26,8 +26,11 @@ export function PlayerPage() {
   }, [currentLesson])
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-950 text-zinc-50">
+    <div className="flex h-full py-10 items-center justify-center bg-zinc-950 text-zinc-50">
       <div className="flex w-[1100px] flex-col gap-6">
+        <h1 className="text-xl font-semibold">
+          1. Gerenciando estado com Redux
+        </h1>
         <div className="flex items-center justify-between">
           <Header />
 

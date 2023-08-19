@@ -1,8 +1,8 @@
 import ReactPlayer from 'react-player/youtube'
-
-import { next, useCurrentLesson } from '../store/slices/player'
-import { useAppDispatch, useAppSelector } from '../store'
 import { Loader } from 'lucide-react'
+
+import { next, useCurrentLesson } from '../../store-redux/slices/player'
+import { useAppDispatch, useAppSelector } from '../../store-redux'
 
 export function VideoPlayer() {
   const dispatch = useAppDispatch()

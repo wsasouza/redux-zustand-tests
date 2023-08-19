@@ -1,6 +1,6 @@
-import { useAppSelector } from '../store'
-import { useCurrentLesson } from '../store/slices/player'
-import { Skeleton } from './Skeleton'
+import { useAppSelector } from '../../store-redux'
+import { useCurrentLesson } from '../../store-redux/slices/player'
+import { Skeleton } from '../Skeleton'
 
 export function Header() {
   const { currentModule, currentLesson } = useCurrentLesson()

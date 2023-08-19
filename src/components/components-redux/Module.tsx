@@ -2,8 +2,8 @@ import * as Collapsible from '@radix-ui/react-collapsible'
 import { ChevronDown } from 'lucide-react'
 
 import { Lesson } from './Lesson'
-import { useAppDispatch, useAppSelector } from '../store'
-import { play } from '../store/slices/player'
+import { useAppDispatch, useAppSelector } from '../../store-redux'
+import { play } from '../../store-redux/slices/player'
 
 interface ModuleProps {
   moduleIndex: number
