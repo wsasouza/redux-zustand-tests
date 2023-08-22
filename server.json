@@ -5,63 +5,84 @@
       "modules": [
         {
           "id": 1,
-          "title": "Iniciando com React",
+          "title": "Módulo A - Conhecendo o JavaScript",
           "lessons": [
             {
-              "id": "Jai8w6K_GnY",
-              "title": "CSS Modules",
-              "duration": "13:45"
+              "id": "uzEhd3Lugik",
+              "title": "Conhecendo o JavaScript",
+              "duration": "6:20"
             },
             {
-              "id": "w-DW4DhDfcw",
-              "title": "Estilização do Post",
-              "duration": "10:05"
+              "id": "Ptbk2af68e8",
+              "title": "O que o JavaScript é capaz de fazer?",
+              "duration": "28:49"
             },
             {
-              "id": "D83-55LUdKE",
-              "title": "Componente: Header",
-              "duration": "06:33"
-            },
-            {
-              "id": "W_ATsETujaY",
-              "title": "Componente: Sidebar",
-              "duration": "09:12"
-            },
-            {
-              "id": "Pj8dPeameYo",
-              "title": "CSS Global",
-              "duration": "03:23"
-            },
-            {
-              "id": "8KBq2vhwbac",
-              "title": "Form de comentários",
-              "duration": "11:34"
+              "id": "rUTKomc2gG8",
+              "title": "JavaScript: como chegamos até aqui?",
+              "duration": "24:46"
             }
           ]
         },
         {
           "id": 2,
-          "title": "Estrutura da aplicação",
+          "title": "Módulo B - Comandos Básicos do JavaScript",
           "lessons": [
             {
-              "id": "gE48FQXRZ_o",
-              "title": "Componente: Comment",
-              "duration": "13:45"
+              "id": "FjT97HVT5g8",
+              "title": "Comandos Básicos do JavaScript",
+              "duration": "02:19"
             },
             {
-              "id": "Ng_Vk4tBl0g",
-              "title": "Responsividade",
-              "duration": "10:05"
+              "id": "FdePtO5JSd0",
+              "title": "Dando os primeiros passos",
+              "duration": "32:51"
             },
             {
-              "id": "h5JA3wfuW1k",
-              "title": "Interações no JSX",
-              "duration": "06:33"
+              "id": "OmmJBfcMJA8",
+              "title": "Criando o seu primeiro script",
+              "duration": "24:14"
             },
             {
-              "id": "1G0vSTqWELg",
-              "title": "Utilizando estado",
-              "duration": "09:12"
+              "id": "Vbabsye7mWo",
+              "title": "Variáveis e Tipos Primitivos",
+              "duration": "31:40"
+            },
+            {
+              "id": "OJgu_KCCUSY",
+              "title": "Tratamento de dados",
+              "duration": "39:15"
+            },
+            {
+              "id": "hZG9ODUdxHo",
+              "title": "Operadores (Parte1)",
+              "duration": "25:30"
+            },
+            {
+              "id": "BP63NhITvao",
+              "title": "Operadores (Parte 2)",
+              "duration": "24:26"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Módulo C - Entendendo o DOM",
+          "lessons": [
+            {
+              "id": "H80nCKs9c2k",
+              "title": "Entendendo o DOM",
+              "duration": "2:01"
+            },
+            {
+              "id": "WWZX8RWLxIk",
+              "title": "Introdução ao DOM",
+              "duration": "28:04"
+            },
+            {
+              "id": "wWnBB-mZIvY",
+              "title": "Eventos DOM",
+              "duration": "28:53"
             }
           ]
         }

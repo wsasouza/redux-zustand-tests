@@ -36,7 +36,7 @@ export function PlayerPageWithZustand() {
 
   return (
     <>
-      <div className="flex h-full py-10 items-center justify-center bg-zinc-950 text-zinc-50">
+      <div className="flex h-full py-10 items-center justify-center bg-gradient-to-tl from-zinc-700 to-zinc-950 text-zinc-50">
         <div className="flex w-[1100px] flex-col gap-6">
           <h1 className="text-xl font-semibold">
             2. Gerenciando estado com Zustand

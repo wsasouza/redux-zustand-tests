@@ -35,6 +35,7 @@ export const useStore = create<PlayerState>((set, get) => {
       set({ isLoading: true })
 
       const response = await api.get('/courses/1')
+      console.log(response)
 
       set({
         course: response.data,
