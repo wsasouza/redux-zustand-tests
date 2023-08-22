@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { api } from '../lib/axios'
 
-interface Course {
+export interface Course {
   id: number
   modules: Array<{
     id: number

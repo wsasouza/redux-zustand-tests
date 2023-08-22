@@ -1,4 +1,4 @@
-import { PlayCircle, Video } from 'lucide-react'
+import { FileVideo, Play } from 'lucide-react'
 
 interface LessonProps {
   title: string
@@ -22,9 +22,9 @@ export function Lesson({
       className="flex items-center gap-3 text-sm text-zinc-400 data-[active=true]:text-emerald-500 enabled:hover:text-zinc-100"
     >
       {isCurrent ? (
-        <PlayCircle className="h-4 w-4 text-emerald-500" />
+        <Play className="h-6 w-6 text-emerald-500" />
       ) : (
-        <Video className="h-4 w-4 text-zinc-500" />
+        <FileVideo className="h-6 w-6 text-zinc-500" />
       )}
       <span>{title}</span>
       <span className="ml-auto font-mono text-xs text-zinc-500">
