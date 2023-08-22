@@ -7,7 +7,6 @@ import { useCurrentLesson, useStore } from '../store-zustand'
 import { ModulesContainer } from '../components/components-zustand/ModulesContainer'
 
 export function PlayerPageWithZustand() {
-  const [key, setKey] = useState(0)
   const [isOpen, setIsOpen] = useState(false)
   const { course, load, isLoading } = useStore((store) => {
     return {
@@ -24,7 +23,6 @@ export function PlayerPageWithZustand() {
   }
 
   function openSlide() {
-    setKey(Math.random())
     setIsOpen(true)
   }
 
@@ -66,7 +64,6 @@ export function PlayerPageWithZustand() {
 
       {course && (
         <ModulesContainer
-          key={key}
           tech="Com Zustand"
           course={course}
           isOpen={isOpen}
