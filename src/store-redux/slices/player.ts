@@ -2,7 +2,7 @@ import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { useAppSelector } from '..'
 import { api } from '../../lib/axios'
 
-interface Course {
+export interface Course {
   id: number
   modules: Array<{
     id: number

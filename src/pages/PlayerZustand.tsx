@@ -4,9 +4,10 @@ import { AlignLeft } from 'lucide-react'
 import { Header } from '../components/components-zustand/Header'
 import { VideoPlayer } from '../components/components-zustand/VideoPlayer'
 import { useCurrentLesson, useStore } from '../store-zustand'
-import { ModulesContainer } from '../components/ModulesContainer'
+import { ModulesContainer } from '../components/components-zustand/ModulesContainer'
 
 export function PlayerPageWithZustand() {
+  const [key, setKey] = useState(0)
   const [isOpen, setIsOpen] = useState(false)
   const { course, load, isLoading } = useStore((store) => {
     return {
@@ -23,6 +24,7 @@ export function PlayerPageWithZustand() {
   }
 
   function openSlide() {
+    setKey(Math.random())
     setIsOpen(true)
   }
 
@@ -46,7 +48,7 @@ export function PlayerPageWithZustand() {
 
             <button
               type="button"
-              className="flex items-center gap-1 rounded bg-emerald-600 px-3 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition-colors duration-300 disabled:bg-zinc-400 cursor-not-allowed"
+              className="flex items-center gap-1 rounded bg-emerald-600 px-3 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition-colors duration-300 disabled:bg-zinc-400 disabled:cursor-not-allowed"
               onClick={openSlide}
               disabled={isLoading}
             >
@@ -64,6 +66,7 @@ export function PlayerPageWithZustand() {
 
       {course && (
         <ModulesContainer
+          key={key}
           tech="Com Zustand"
           course={course}
           isOpen={isOpen}

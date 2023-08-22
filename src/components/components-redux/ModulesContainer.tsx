@@ -2,8 +2,8 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { X } from 'lucide-react'
 
-import { Course } from '../store-zustand'
-import { Module } from './components-zustand/Module'
+import { Course } from '../../store-redux/slices/player'
+import { Module } from '../components-redux/Module'
 
 interface ModulesContainerProps {
   tech: string
